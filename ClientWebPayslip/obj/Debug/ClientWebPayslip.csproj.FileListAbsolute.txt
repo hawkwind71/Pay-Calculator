@@ -1,0 +1,6 @@
+C:\Users\donsh_000\documents\visual studio 2013\Projects\WebApiPayslip\ClientWebPayslip\bin\ClientWebPayslip.dll.config
+C:\Users\donsh_000\documents\visual studio 2013\Projects\WebApiPayslip\ClientWebPayslip\bin\ClientWebPayslip.dll
+C:\Users\donsh_000\documents\visual studio 2013\Projects\WebApiPayslip\ClientWebPayslip\bin\ClientWebPayslip.pdb
+C:\Users\donsh_000\documents\visual studio 2013\Projects\WebApiPayslip\ClientWebPayslip\obj\Debug\ClientWebPayslip.csprojResolveAssemblyReference.cache
+C:\Users\donsh_000\documents\visual studio 2013\Projects\WebApiPayslip\ClientWebPayslip\obj\Debug\ClientWebPayslip.dll
+C:\Users\donsh_000\documents\visual studio 2013\Projects\WebApiPayslip\ClientWebPayslip\obj\Debug\ClientWebPayslip.pdb

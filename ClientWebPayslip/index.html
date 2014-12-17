@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>Payslip Calculator</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://code.angularjs.org/1.2.20/angular.js"></script>
+</head>
+<body ng-app="payslipApp" ng-cloak>
+    <div class="container" ng-controller="mainController">
+        <form name="form1" role="form" novalidate>
+            <fieldset>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="form-group">
+                                <label for="fname" class="control-label">First name: </label>
+                                <input type="text" name="fname" ng-model="item.firstName" class="form-control" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="lname" class="control-label">Last name: </label>
+                                <input type="text" name="lname" ng-model="item.lastName" class="form-control" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="date" class="control-label">Payment date: </label>
+                                <select name="month" data-ng-model="item.paymentMonth" class="form-control"
+                                        data-ng-options="m.value as m.name for m in months"
+                                        required>
+                                    <option value="">Select Month</option>
+                                </select>
+                                <select name="year" data-ng-model="item.paymentYear" class="form-control"
+                                        data-ng-options="y for y in years"
+                                        required>
+                                    <option value="">Select Year</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="salary" class="control-label">Annual salary: </label>
+                                <input type="number" name="salary" ng-model="item.annualSalary" class="form-control" min="0" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="super" class="control-label">Super: </label>
+                                <input type="number" name="super" ng-model="item.superRate" class="form-control" min="0" placeholder="Please enter in % (without % sign)" required />
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary" ng-click="calc()" ng-disabled="form1.$invalid">Calculate</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-primary" ng-show="payslip!==null">
+                        <div class="row">
+                            <div class="col-sm-3"><label for="fname" class="control-label">Name: </label></div>
+                            <div class="col-sm-9">{{payslip.FirstName +' '+ payslip.LastName}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3"><label for="pmy" class="control-label">Payment date: </label></div>
+                            <div class="col-sm-9">{{payslip.PaymentMonthName +' - '+payslip.PaymentYear}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3"><label for="fname" class="control-label">Annual: </label></div>
+                            <div class="col-sm-9">{{payslip.AnnualSalary}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3"><label for="gi" class="control-label">Gross Income: </label></div>
+                            <div class="col-sm-9">{{payslip.GrossIncome}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3"><label for="it" class="control-label">Income Tax: </label></div>
+                            <div class="col-sm-9">{{payslip.IncomeTax}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3"><label for="ni" class="control-label">Net Income: </label></div>
+                            <div class="col-sm-9">{{payslip.NetIncome}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3"><label for="super" class="control-label">Super ({{payslip.SuperRate}}%): </label></div>
+                            <div class="col-sm-9">{{payslip.Super}}</div>
+                        </div>
+
+                    </div>
+                </div>                
+            </fieldset>
+        </form>
+    </div>
+    <!--Libraries-->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular-resource.min.js"></script>
+    <!--App-->
+    <script src="scripts/mainController.js"></script>
+    <script src="scripts/httpService.js"></script>
+</body>
+</html>
